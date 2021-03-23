@@ -188,7 +188,7 @@ print(t)
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-sudo_users = {SUDO,1464890548,1236115319,835551362}   
+sudo_users = {SUDO,1488653639,1236115319,835551362}   
 function SudoBot(msg)  
 local ELMOSLM = false  
 for k,v in pairs(sudo_users) do  
@@ -270,7 +270,7 @@ return false
 end 
 end
 function Can_or_NotCan(user_id,chat_id)
-if tonumber(user_id) == tonumber(1464890548) then  
+if tonumber(user_id) == tonumber(1488653639) then  
 var = true  
 elseif tonumber(user_id) == tonumber(1236115319) then
 var = true 
@@ -304,8 +304,8 @@ end
 return var
 end 
 function Rutba(user_id,chat_id)
-if tonumber(user_id) == tonumber(1464890548) then  
-var = 'مطور السورس'
+if tonumber(user_id) == tonumber(1488653639) then  
+var = '𝙳𝙴𝚅 𝙰𝙳𝙷𝙰𝙼 🇪🇬.'
 elseif tonumber(user_id) == tonumber(835551362) then
 var = 'بابا بلاك'
 elseif tonumber(user_id) == tonumber(1236115319) then
@@ -5566,7 +5566,7 @@ end
 ------------------------------------------------------------------------
 if text == 'تنزيل الشواذ' and Mod(msg) then
 database:del(bot_id..'Mote:User'..msg.chat_id_)
-send(msg.chat_id_, msg.id_, ' ❃∫ تم مسح جميع الشواذ)
+send(msg.chat_id_, msg.id_, ' ❃∫ تم مسح جميع الشواذ')
 end
 if text == ("تاك للشواذ") and Mod(msg) then
 local list = database:smembers(bot_id..'Mote:User'..msg.chat_id_)
